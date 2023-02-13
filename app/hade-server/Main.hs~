@@ -1,0 +1,31 @@
+--{-# LANGUAGE TemplateHaskell, DeriveDataTypeable, DeriveGeneric #-}
+{-# LANGUAGE RecordWildCards #-}
+import System.Environment (getArgs)
+import Control.Concurrent.STM
+import Control.Distributed.Process.Closure
+import Control.Distributed.Process.Backend.SimpleLocalnet (initializeBackend, startMaster, startSlave)
+import Control.Distributed.Process
+import Control.Distributed.Process.Node
+import Network.Transport.TCP
+import Actor.Master
+import Actor.MasterActor
+import Control.Concurrent
+import Server.Service
+import Step.ReadExcel
+import Struct.Struct
+import Network.Google.Data.Base64
+import Data.ByteString.Char8
+--import Util.Request
+
+main :: IO ()
+main = do
+  [host,port] <- getArgs
+  let rtbl = Step.ReadExcel.__remoteTable initRemoteTable
+  request <- atomically $ newTVar $ BBuf ""  
+  response <- atomically $ newTVar $ BBuf "" 
+  let r = (request, response) :: Req
+  backend <- initializeBackend host port rtbl
+--  forkIO $ requestMonitor request
+--  forkIO $ cacheMonitor (request,response)
+  forkIO $ startService r
+  startMaster backend (masterActor backend r)

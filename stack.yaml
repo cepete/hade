@@ -1,0 +1,17 @@
+flags: {}
+packages:
+- .
+- ./csv2json
+- ./csv-conduit
+- ./distributed-process
+- ./distributed-process-simplelocalnet
+- ./distributed-static
+extra-deps: 
+- endo-0.3.0.1@sha256:7299a456be44c72431f9193f56bb9fb21e3f76746bd7affa433f2f0bede89eb7,5289
+- network-multicast-0.3.2@sha256:521547635a6afae408ec25193b3e429082dc0442668dac7ad5cea76ccee39750,979
+- servant-js-0.9.4.2@sha256:8376ab122b48427f190e9289e659a68dc382f1739ac610514f524a2c22386a52,3531
+- template-0.2.0.10@sha256:f822de4d34c45bc84b33a61bc112c15fedee6fa6dc414c62b10456395a868f85,987
+
+
+
+resolver: lts-19.25

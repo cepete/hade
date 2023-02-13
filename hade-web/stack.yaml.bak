@@ -1,0 +1,34 @@
+resolver: lts-8.11
+compiler: ghcjs-0.2.1.9008011_ghc-8.0.2
+setup-info:
+  ghcjs:
+    source:
+      ghcjs-0.2.1.9008011_ghc-8.0.2:
+        url: https://github.com/matchwood/ghcjs-stack-dist/raw/master/ghcjs-0.2.1.9008011.tar.gz
+        sha1: a72a5181124baf64bcd0e68a8726e65914473b3b
+
+packages:
+  - location:
+      git: https://github.com/ghcjs/ghcjs-dom.git
+      commit: "b5984c8326f6eb1e29f2ca60c0e88eb6ecfdc0c1"
+    subdirs:
+      - ghcjs-dom
+      - ghcjs-dom-jsffi
+      - ghcjs-dom-jsaddle
+
+  - location:
+      git: https://github.com/ghcjs/jsaddle-dom
+      commit: "0c3f8c60a15fba49bea8d9e4fa871fb1e40460d4"
+
+  - location:
+      git: https://github.com/reflex-frp/reflex.git
+      commit: 1d3a26b3f7d7d50cfe95bb3a28eca38981ad9ec3
+
+  - location:
+      git: https://github.com/reflex-frp/reflex-dom.git
+      commit: 275939f650b87d2d46b6b8416655d963fee9280e
+    subdirs:
+      - reflex-dom-core
+      - reflex-dom
+
+extra-deps: []

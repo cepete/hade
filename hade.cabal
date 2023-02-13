@@ -1,0 +1,155 @@
+name:                hade
+version:             0.1.0.0
+synopsis:            Initial project template from stack
+description:         Please see README.md
+homepage:            http://github.com/cepete02/template#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Carl E. Petersen
+maintainer:          cepete02@gmail.com
+copyright:           GNU-V3
+category:            App-Dev
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+executable hade-server
+  hs-source-dirs:      app/hade-server,
+                       src
+  main-is:             Main.hs
+  ghc-options:      -Wall
+                    -threaded
+                    -rtsopts
+
+  build-depends:       base
+                     , aeson < 2.0
+                     , template
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , base64-bytestring
+                     , network-transport-tcp
+                     , network-transport
+                     , bytestring
+                     , bytestring-conversion
+                     , parsec
+                     , xlsx-tabular
+                     , xlsx
+                     , binary
+                     , servant-server
+                     , text
+                     , warp
+                     , wai
+                     , servant
+                     , servant-js
+                     , transformers
+                     , stm
+                     , lens
+                     , endo
+                     , lens-aeson
+                     , utf8-string
+                     , mtl
+                     , containers
+--                     , gogol-core
+                     , unordered-containers
+                     , cassava
+                     , vector
+--                     , split
+                     , csv2json
+                     , csv-conduit
+                     , hint
+                     , json
+                     , word8
+                     , csv
+                     , th-abstraction
+  other-modules:       Actor.Master
+                     , Actor.MasterActor
+                     , Server.Service
+                     , Step.ReadExcel
+                     , Step.ReturnVal
+                     , Step.ReadCsv
+                     , Struct.Architecture
+                     , Remote
+                     , Util.Util
+--                     , Util.Request
+  extensions:          BangPatterns, CPP, TemplateHaskell
+  default-language:    Haskell2010
+
+executable hade-client
+  hs-source-dirs:      app/hade-client,
+                       src
+  main-is:             Main.hs
+  ghc-options:      -Wall
+                    -threaded
+                    -O2
+                    -rtsopts
+                    -fno-warn-unused-do-bind
+                    -fno-warn-wrong-do-bind
+                    -fno-warn-type-defaults
+                    -fwarn-implicit-prelude
+                    -XTemplateHaskell
+  build-depends:       base
+                     , aeson < 2.0
+                     , template
+                     , distributed-process
+                     , distributed-process-simplelocalnet
+                     , network-transport-tcp
+                     , network-transport
+                     , base64-bytestring
+                     , parsec
+                     , bytestring
+                     , bytestring-conversion
+                     , binary
+                     , servant-server
+                     , text
+                     , warp
+ --                    , wai
+                     , transformers
+                     , stm
+                     , xlsx
+                     , xlsx-tabular
+                     , lens
+                     , endo
+                     , lens-aeson
+                     , utf8-string
+                     , containers
+--                     , gogol-core
+                     , unordered-containers
+                     , csv2json
+                     , csv-conduit
+                     , vector
+--                     , split
+                     , hint
+                     , json
+                     , word8
+                     , csv
+                     , th-abstraction
+  other-modules:       Actor.Master
+                     , Step.ReadExcel
+                     , Step.ReturnVal
+                     , Step.ReadCsv
+                     , Struct.Architecture
+                     , Remote
+                     , Util.Util
+  extensions:          BangPatterns, CPP, TemplateHaskell
+  default-language:    Haskell2010
+
+test-suite template-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , template
+
+  ghc-options:      -Wall
+                    -threaded
+                    -O2
+                    -rtsopts
+                    -fno-warn-unused-do-bind
+                    -fno-warn-wrong-do-bind
+                    -fno-warn-type-defaults
+                    -fwarn-implicit-prelude
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/cepete02/template

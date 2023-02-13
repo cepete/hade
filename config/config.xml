@@ -1,0 +1,26 @@
+﻿<connections>
+  <connection ConnectionName="src01_cvs">
+    <Property Name="Env">local</Property>
+    <Property Name="Host">127.0.0.1</Property>
+    <Property Name="Port">2552</Property>
+    <Property Name="Directory">/apps/workspace/xtractor/maps/src01_cvs</Property>
+  </connection>
+  <connection ConnectionName="src02_cvs">
+    <Property Name="Env">local</Property>
+    <Property Name="Host">127.0.0.1</Property>
+    <Property Name="Port">2552</Property>
+    <Property Name="Directory">/apps/workspace/xtractor/maps/src02_cvs</Property>
+  </connection>
+  <connection ConnectionName="trg01_cvs">
+    <Property Name="Env">local</Property>
+    <Property Name="Host">127.0.0.1</Property>
+    <Property Name="Port">2552</Property>
+    <Property Name="Directory">/apps/workspace/xtractor/maps/trg01_cvs</Property>
+  </connection>
+    <connection ConnectionName="trg02_cvs">
+    <Property Name="Env">local</Property>
+    <Property Name="Host">127.0.01</Property>
+    <Property Name="Port">2552</Property>
+    <Property Name="Directory">/apps/workspace/xtractor/maps/trg01_cvs</Property>
+  </connection>
+</connections>

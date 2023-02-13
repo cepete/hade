@@ -1,0 +1,50 @@
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE TypeOperators   #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+module Server.Service
+  (
+    startService
+  )
+  where
+
+import Data.Aeson
+import Struct.Struct
+import Control.Distributed.Process as P
+import Control.Monad.Trans.Except
+import Control.Concurrent.STM
+import Network.Wai.Handler.Warp
+import Network.Wai
+import Network.Google.Data.Base64 as B
+import Network.Google.Data.JSON
+import Data.ByteString.Lazy.UTF8 as U
+import Servant as S
+import qualified Data.ByteString.Lazy.Char8 as L
+
+type API = "map" :>                     ReqBody '[JSON] BBuf :> Post '[JSON] BBuf
+
+
+--  No command
+server :: Req -> Server API 
+server r = cf
+  where
+    cf ::  BBuf -> ExceptT ServantErr IO BBuf
+    cf b  = do
+      liftIO $ atomically (writeTVar (fst r) b)
+      liftIO $ atomRead (snd r)
+
+api :: Proxy API
+api = Proxy
+
+app1 :: Req -> Application
+app1 r = serve api (server r)
+
+startService :: Req -> IO ()
+startService rqt = do
+  run 8080 (app1 rqt)
+
+atomRead = atomically . readTVar
+dispVar x = atomRead x >>= print
+appV fn x = atomically $ readTVar x >>= writeTVar x . fn
+
+putJ j = say $ "Got Chan2" ++ U.toString j  

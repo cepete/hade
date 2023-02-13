@@ -1,0 +1,76 @@
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE TypeOperators   #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+--{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+
+module Struct.Architecture
+    (
+      Map
+      , Property
+      , Step
+      , stepproperty
+      , steps
+      , Cfg
+      , Config
+      , EmptyConf
+      , config
+      , Connections
+      , connections
+      , cfgproperty
+      , connectionname,
+    ) where
+
+import Data.Aeson
+import Data.Aeson.TH
+--import Data.Aeson.Types
+import GHC.Generics
+import Data.Binary
+import Data.Text
+import Data.HashMap.Strict
+--import Data.Typeable
+
+type EmptyConf = Nothing
+data Cfg = EmptyCfg | Cfg { config :: Config } deriving (Show, Generic)
+
+data Config = EmptyConf | Config {connections :: [Connections]} deriving (Show, Generic)
+
+data Connections = EmptyConn | Connections { cfgproperty  :: !Object
+                               , connectionname :: String
+                               } deriving (Show, Generic)
+
+instance FromJSON Cfg
+instance FromJSON Config
+instance FromJSON Connections
+instance ToJSON Cfg
+instance ToJSON Config
+instance ToJSON Connections
+
+
+
+data Property = Property {mapname :: !Text } deriving (Show, Generic)
+
+data Map = Map {property :: Property
+               , steps :: [Steps]
+               , hops :: [Hops]
+               } deriving (Show, Generic)
+
+data Steps = Steps { stepproperty :: !Object
+                      , columns :: !Object
+                         } deriving (Show, Generic)
+
+data Hops = Hops { hop :: !Object
+                       } deriving (Show, Generic)
+
+
+instance ToJSON Steps
+instance ToJSON Property
+instance ToJSON Hops
+instance FromJSON Steps
+instance FromJSON Property
+instance FromJSON Hops
+
+type Step = Steps
+--type Connection = Connections
+

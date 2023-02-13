@@ -1,0 +1,11 @@
+flags: {}
+packages:
+- .
+extra-deps: 
+jsaddle-warp-0.9.5.0@sha256:8da88795bdb9ebe67c408030415582df4aee289a7c43a5c14940e849c60efa5d,2511
+reflex-0.4.0.1@sha256:4996ef9e2e2d36305435e22e910f66fc678380b77e1cba8332f2f0d02034ba5c,2422
+reflex-dom-0.3@sha256:b569e2b08dac72a37173f680be5eaeb9ad57900c08301bf7b958f1cf52ac6055,2777
+
+
+
+resolver: lts-12.11

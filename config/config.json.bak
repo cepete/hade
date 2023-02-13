@@ -1,0 +1,90 @@
+{
+  "connections": {
+    "connection": [
+      {
+        "Property": [
+          {
+            "value": "local",
+            "Name": "Env"
+          },
+          {
+            "value": "localhost",
+            "Name": "Host"
+          },
+          {
+            "value": "8001",
+            "Name": "Port"
+          },
+          {
+            "value": "/apps/workspace/hade/maps/src01_cvs",
+            "Name": "Directory"
+          }
+        ],
+        "ConnectionName": "src01_cvs"
+      },
+      {
+        "Property": [
+          {
+            "value": "local",
+            "Name": "Env"
+          },
+          {
+            "value": "localhost",
+            "Name": "Host"
+          },
+          {
+            "value": "8001",
+            "Name": "Port"
+          },
+          {
+            "value": "/apps/workspace/hade/maps/src02_cvs",
+            "Name": "Directory"
+          }
+        ],
+        "ConnectionName": "src02_cvs"
+      },
+      {
+        "Property": [
+          {
+            "value": "local",
+            "Name": "Env"
+          },
+          {
+            "value": "localhost",
+            "Name": "Host"
+          },
+          {
+            "value": "8001",
+            "Name": "Port"
+          },
+          {
+            "value": "/apps/workspace/hade/maps/trg01_cvs",
+            "Name": "Directory"
+          }
+        ],
+        "ConnectionName": "trg01_cvs"
+      },
+      {
+        "Property": [
+          {
+            "value": "local",
+            "Name": "Env"
+          },
+          {
+            "value": "localhost",
+            "Name": "Host"
+          },
+          {
+            "value": "8001",
+            "Name": "Port"
+          },
+          {
+            "value": "/apps/workspace/hade/maps/trg01_cvs",
+            "Name": "Directory"
+          }
+        ],
+        "ConnectionName": "trg02_cvs"
+      }
+    ]
+  }
+}

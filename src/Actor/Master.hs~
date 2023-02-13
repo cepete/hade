@@ -1,0 +1,50 @@
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE TemplateHaskell, DeriveDataTypeable, DeriveGeneric #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE Arrows, NoMonomorphismRestriction #-}
+{-# LANGUAGE TypeOperators   #-}
+module Actor.Master
+    ( master
+    ) where
+
+import Control.Distributed.Process as P
+import Control.Distributed.Process.Closure
+import Step.ReadExcel
+import Control.Concurrent
+import Control.Concurrent.STM
+import Control.Distributed.Process.Backend.SimpleLocalnet
+import Control.Monad
+import Text.Printf
+import Struct.Struct
+import Struct.Architecture
+import Data.ByteString.Lazy.UTF8 as U
+import qualified Data.ByteString.Lazy as B
+import Data.HashMap.Strict as H
+import Data.Aeson as A
+--
+
+master :: [NodeId] -> ByteString -> Req -> Process ()
+master slaves cfg rqt = do
+  ps <- forM slaves $ \nid -> do
+          say $ printf "spawning on %s" (show nid)
+          pid <- spawn nid $(mkStaticClosure 'readExcel)
+          (sendPort, rcvPort) <- P.newChan
+          send pid (IChan sendPort)
+          (BBuf r) <- liftIO (atomRead (fst rqt))
+          let sc = empty
+          send pid (IHash sc)
+          (IBuf g) <- receiveChan rcvPort
+          liftIO . atomically $ writeTVar (snd rqt) g
+  liftIO $ threadDelay 100000 
+
+
+atomRead = atomically . readTVar
+
+getMap :: FilePath -> IO B.ByteString
+getMap = B.readFile
+
+getSteps :: Map -> [Step] 
+getSteps b = (steps b)
+
+getStepProps :: Step -> Object
+getStepProps b = stepproperty b

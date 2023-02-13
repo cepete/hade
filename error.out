@@ -1,0 +1,6 @@
+Fri Oct 13 11:53:36 UTC 2017 pid://localhost:8002:0:10: Step on String "src01_csv"
+Fri Oct 13 11:53:36 UTC 2017 pid://localhost:8002:0:10: Config on fromList [("Env",String "local"),("Host",String "localhost"),("Directory",String "/apps/workspace/hade/maps/src01_csv"),("Port",String "8001")]
+Fri Oct 13 11:53:36 UTC 2017 pid://localhost:8002:0:10: Config on Nothing
+hade-server: Data.HashMap.Base.(!): key not found
+CallStack (from HasCallStack):
+  error, called at ./Data/HashMap/Base.hs:353:16 in unordered-containers-0.2.7.1-Eo9jd5DMz45DhBLCG8skzW:Data.HashMap.Base

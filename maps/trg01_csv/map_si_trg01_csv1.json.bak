@@ -1,0 +1,522 @@
+{
+   "Property": {
+      "MapName": "map_si_src01_cvs1"
+   },
+   "Steps": [
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Input_test_cvs1"
+            },
+            {
+               "Name": "StepType",
+               "value": "Input_Cvs"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "src01_cvs"
+            },
+            {
+               "Name": "File",
+               "value": "in_test_cvs1.cvs"
+            }
+         ],
+         "Columns": [
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "2"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "description"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "string"
+               },
+               {
+                  "Name": "Length",
+                  "value": "200"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "3"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "quantity"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "number"
+               },
+               {
+                  "Name": "Length",
+                  "value": "16"
+               },
+               {
+                  "Name": "DecimalPos",
+                  "value": "2"
+               }
+            ]
+         ]
+      },
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Input_test_cvs2"
+            },
+            {
+               "Name": "StepType",
+               "value": "Input_Cvs"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "src02_cvs"
+            },
+            {
+               "Name": "File",
+               "value": "in_test_cvs2.cvs"
+            }
+         ],
+         "Columns": [
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "2"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "manufacturing_plant"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "string"
+               },
+               {
+                  "Name": "Length",
+                  "value": "200"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "3"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "on-hand"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "number"
+               },
+               {
+                  "Name": "Length",
+                  "value": "16"
+               },
+               {
+                  "Name": "DecimalPos",
+                  "value": "2"
+               }
+            ]
+         ]
+      },
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Input_test_cvs3"
+            },
+            {
+               "Name": "StepType",
+               "value": "Input_Cvs"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "src02_cvs"
+            },
+            {
+               "Name": "File",
+               "value": "in_test_cvs3.cvs"
+            }
+         ],
+         "Columns": [
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "2"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "description"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "string"
+               },
+               {
+                  "Name": "Length",
+                  "value": "200"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "3"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "quantity"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "number"
+               },
+               {
+                  "Name": "Length",
+                  "value": "16"
+               },
+               {
+                  "Name": "DecimalPos",
+                  "value": "2"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "4"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "manufacturing_plant"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "string"
+               },
+               {
+                  "Name": "Length",
+                  "value": "200"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ],
+            [
+               {
+                  "Name": "ColumnPos",
+                  "value": "5"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "on-hand"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "number"
+               },
+               {
+                  "Name": "Length",
+                  "value": "16"
+               },
+               {
+                  "Name": "DecimalPos",
+                  "value": "2"
+               }
+            ]
+         ]
+      },
+      {
+        "StepProperty": [
+         {
+            "Name": "StepName",
+            "value": "Output_test_cvs1"
+         },
+         {
+            "Name": "StepType",
+            "value": "Output_Cvs"
+         },
+         {
+            "Name": "RunLoc",
+            "value": "trg01_cvs"
+         },
+         {
+            "Name": "File",
+            "value": "out_test_cvs1.cvs"
+         }
+        ]
+      },
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Sort_test_cvs1"
+            },
+            {
+               "Name": "StepType",
+               "value": "Sorter"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "trg02_cvs"
+            }
+         ],
+         "Columns": {
+            "Column": [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ]
+         }
+      },
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Sort_test_cvs2"
+            },
+            {
+               "Name": "StepType",
+               "value": "Sorter"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "trg02_cvs"
+            }
+         ],
+         "Columns": {
+            "Column": [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ]
+         }
+      },
+      {
+         "StepProperty": [
+            {
+               "Name": "StepName",
+               "value": "Merge"
+            },
+            {
+               "Name": "StepType",
+               "value": "MergeJoin"
+            },
+            {
+               "Name": "RunLoc",
+               "value": "trg02_cvs"
+            },
+            {
+               "Name": "InStepOne",
+               "value": "Sort_test_cvs1"
+            },
+            {
+               "Name": "InStepTwo",
+               "value": "Sort_test_cvs2"
+            }
+         ],
+         "Columns": {
+            "Column": [
+               {
+                  "Name": "ColumnPos",
+                  "value": "1"
+               },
+               {
+                  "Name": "ColumnName",
+                  "value": "id"
+               },
+               {
+                  "Name": "DataType",
+                  "value": "integer"
+               },
+               {
+                  "Name": "Length"
+               },
+               {
+                  "Name": "DecimalPos"
+               }
+            ]
+         }
+      },
+      {
+        "StepProperty": [
+         {
+            "Name": "StepName",
+            "value": "Union"
+         },
+         {
+            "Name": "StepType",
+            "value": "Union"
+         },
+         {
+            "Name": "RunLoc",
+            "value": "trg01_cvs"
+         },
+         {
+            "Name": "InStepOne",
+            "value": "Merge"
+         },
+         {
+            "Name": "InStepTwo",
+            "value": "Input_test_cvs3"
+         }
+        ]
+      },
+      {
+        "StepProperty": [
+         {
+            "Name": "StepName",
+            "value": "Stop"
+         },
+         {
+            "Name": "StepType",
+            "value": "Stop"
+         },
+         {
+            "Name": "RunLoc",
+            "value": "trg01_cvs"
+         }
+        ]
+      }
+   ],
+   "Hops": [
+      {
+         "HopSource": "Input_test_cvs1",
+         "HopTarget": "Sort_test_cvs1"
+      },
+      {
+         "HopSource": "Input_test_cvs2",
+         "HopTarget": "Sort_test_cvs2"
+      },
+      {
+         "HopSource": "Sort_test_cvs1",
+         "HopTarget": "Merge"
+      },
+      {
+         "HopSource": "Sort_test_cvs2",
+         "HopTarget": "Merge"
+      },
+      {
+         "HopSource": "Merge",
+         "HopTarget": "Union"
+      },
+      {
+         "HopSource": "Input_test_cvs3",
+         "HopTarget": "Union"
+      },
+      {
+         "HopSource": "Union",
+         "HopTarget": "Output_test_cvs1"
+      },
+      {
+         "HopSource": "Output_test_cvs1",
+         "HopTarget": "Stop"
+      }
+   ]
+}
+

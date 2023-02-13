@@ -1,0 +1,45 @@
+{-# LANGUAGE DeriveDataTypeable, DeriveGeneric #-}
+{-# LANGUAGE DisambiguateRecordFields #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeOperators   #-}
+module Step.ReadExcel
+    ( readExcel
+    , readExcel__static
+    , __remoteTable
+    ) where
+import Codec.Xlsx
+--import Codec.Xlsx.Formatted
+import Codec.Xlsx.Util.Tabular
+import Codec.Xlsx.Util.Tabular.Json
+import Data.ByteString.Lazy as B
+--import Data.ByteString.Char8 as C
+import Control.Concurrent ( threadDelay )
+import Data.Aeson as A
+import Control.Distributed.Process
+import Control.Distributed.Process.Closure
+import Data.Aeson.Types
+import GHC.Generics
+import Data.Binary
+import Data.Typeable
+import Struct.Struct
+import Data.ByteString.Lazy.UTF8 as U
+import Network.Google.Data.Base64
+
+
+readExcel :: Process ()
+readExcel = do
+  say "Got Chan" 
+  IChan chan <- expect
+  say "Got Chan1" 
+  IHash sc <- expect
+  ps <- liftIO j
+  say $ "Got Chan2" ++ U.toString ps  
+  sendChan chan (IBuf $ BBuf $ U.toString ps)
+  where 
+    j = do
+      r <- toTableRowsFromFile 8 "/apps/workspace/hade/final-project.xlsx"
+      let b = A.encode r 
+      return b
+
+remotable ['readExcel]

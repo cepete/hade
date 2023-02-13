@@ -1,0 +1,69 @@
+{
+    "trans": "map_si_trg01_csv1",
+    "ebfr": {
+        "mid": 0,
+        "bufr": {
+            "body": [
+                [
+                    "OTg5ICA=",
+                    "XkV5Jjp0byNlICAgICAgICAgICAgICAgICA=",
+                    "OTI1LjAw"
+                ],
+                [
+                    "OTEyICA=",
+                    "ailQZXRKTlogVldrcFkgT0RRICAgICAgICA=",
+                    "MjMyLjQx"
+                ],
+                [
+                    "NjkyICA=",
+                    "VHpGICAgICAgICAgICAgICAgICAgICAgICA=",
+                    "NTc3Ljg4"
+                ],
+                [
+                    "MzU2ICA=",
+                    "TnIgICAgICAgICAgICAgICAgICAgICAgICA=",
+                    "MjU3LjU0"
+                ],
+                [
+                    "NjM3ICA=",
+                    "S1JhcmMlSCAgICAgICAgICAgICAgICAgICA=",
+                    "MTE0NC42OA=="
+                ],
+                [
+                    "NDUgICA=",
+                    "ZFEvUF5ZeSFdICAgICAgICAgICAgICAgICA=",
+                    "OTE0LjM2"
+                ],
+                [
+                    "NjQ0ICA=",
+                    "JkBfdWM/UVNsaUp5cipkIHo/ICAgICAgICA=",
+                    "MTI4MC4yMQ=="
+                ],
+                [
+                    "MjQwICA=",
+                    "RlJXOlhPICAgICAgICAgICAgICAgICAgICA=",
+                    "OTMzLjAy"
+                ],
+                [
+                    "ODkzICA=",
+                    "Un5zLTo+PXsramxdJF4gICAgICAgICAgICA=",
+                    "MjQzLjQ5"
+                ],
+                [
+                    "ODg4ICA=",
+                    "cCRWKWBlKishVlBGP3JcX1Z7ZyAgICAgICA=",
+                    "OTg3LjI4"
+                ],
+                [
+                    "MzM5ICA=",
+                    "TCFYIGxAdmZfIH5yR09BWURZa3A6ICAgICA=",
+                    "NTM2Ljk0"
+                ],
+                [
+                    ""
+                ]
+            ]
+        }
+    },
+    "pms": []
+}

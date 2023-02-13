@@ -1,0 +1,58 @@
+-- Hade - Haskell Application Development Environment
+-- Author - C.E. Petersen
+-- Origin Date - 08-31-2017
+-- Revision 1.0
+--
+--
+--
+-- {-# LANGUAGE DeriveDataTypeable, DeriveGeneric #-}
+{-# LANGUAGE DisambiguateRecordFields #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
+{-# LANGUAGE OverloadedStrings #-}
+-- {-# LANGUAGE TypeOperators   #-}
+module Step.ReadCsv
+    ( readCsv
+    ) where
+import Control.Distributed.Process
+import Text.CSV
+import Struct.Struct ( BBuf(BBuf), Buf(IBuf, IChan), Rows )
+import Struct.Architecture
+import Data.ByteString.UTF8 as U
+import Data.HashMap.Strict as H (fromList,findWithDefault) 
+import Data.Void (vacuous)
+import Codec.Xlsx.Util.Tabular.Imports (view)
+import Util.Util (loadConn,getDir,bufferIze)
+
+
+readCsv :: Process ()
+readCsv = do
+  say "Got Chan"
+  IStep stp <- expect
+  Config cfg <- expect
+  IProp p <-expect
+  IChan chan <- expect
+  let bs = fromIntegral $ bufferSize p
+  let col = columns $ stepProperty stp 
+  let inf = file $ stepProperty stp
+  let c = loadConn cfg 
+  let dir = getDir (stepName stp,stepProperty stp) c
+  let csvFile = dir ++ "/" ++ inf
+  input <- liftIO $ readFile csvFile
+  cf <- either handleError (parseCSV csvFile) input
+  let bRow = (map.map) U.fromString cf
+  either handleError (mkRows chan) cf bs
+
+handleError :: MonadFail m => p -> m a
+handleError c = fail "error parsing"
+
+mkRows :: SendPort Buf -> [[String]] -> Int -> Process ()
+mkRows chan c bs = do
+  let bRow = bufferIze c bs
+  sendChan chan (IBuf $ BBuf (fst bRow))
+  mkRows chan c bs
+  
+
+--mkRow :: SendPort Buf -> [[ByteString]] -> Integer
+--mkRow chan c bs = 
+--  let res = bufferIze c bs
+--  | 

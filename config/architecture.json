@@ -1,0 +1,90 @@
+{
+  "connections": {
+    "connection": [
+      {
+        "ConnectionName": "src01_cvs",
+        "Property": [
+          {
+            "Name": "Env",
+            "value": "local"
+          },
+          {
+            "Name": "Host",
+            "value": "127.0.0.1"
+          },
+          {
+            "Name": "Port",
+            "value": "2552"
+          },
+          {
+            "Name": "Directory",
+            "value": "/apps/workspace/xtractor/maps/src01_cvs"
+          }
+        ]
+      },
+      {
+        "ConnectionName": "src02_cvs",
+        "Property": [
+          {
+            "Name": "Env",
+            "value": "local"
+          },
+          {
+            "Name": "Host",
+            "value": "127.0.0.1"
+          },
+          {
+            "Name": "Port",
+            "value": "2552"
+          },
+          {
+            "Name": "Directory",
+            "value": "/apps/workspace/xtractor/maps/src02_cvs"
+          }
+        ]
+      },
+      {
+        "ConnectionName": "trg01_cvs",
+        "Property": [
+          {
+            "Name": "Env",
+            "value": "local"
+          },
+          {
+            "Name": "Host",
+            "value": "127.0.0.1"
+          },
+          {
+            "Name": "Port",
+            "value": "2552"
+          },
+          {
+            "Name": "Directory",
+            "value": "/apps/workspace/xtractor/maps/trg01_cvs"
+          }
+        ]
+      },
+      {
+        "ConnectionName": "trg02_cvs",
+        "Property": [
+          {
+            "Name": "Env",
+            "value": "local"
+          },
+          {
+            "Name": "Host",
+            "value": "127.0.0.1"
+          },
+          {
+            "Name": "Port",
+            "value": "2552"
+          },
+          {
+            "Name": "Directory",
+            "value": "/apps/workspace/xtractor/maps/trg01_cvs"
+          }
+        ]
+      }
+    ]
+  }
+}

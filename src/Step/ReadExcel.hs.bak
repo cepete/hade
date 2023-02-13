@@ -1,0 +1,66 @@
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE TypeOperators   #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE DeriveGeneric #-}
+module Step.ReadExcel
+    (
+        readExcel
+    ) where
+
+import Codec.Xlsx
+import Codec.Xlsx.Util.Tabular
+import Codec.Xlsx.Formatted
+import qualified Data.ByteString.Lazy as L
+import Control.Lens
+import Data.Aeson as A
+import Data.Aeson.TH
+import Data.Aeson.Types
+import Struct.Struct as S
+import Control.Distributed.Process
+import Control.Distributed.Process.Closure
+import Control.Concurrent
+import Control.Monad
+import GHC.Generics
+import Data.Binary
+import Data.Typeable
+import Data.List
+import Data.String
+import qualified Data.ByteString.Lazy as B
+
+data Config = Config
+  {
+    xlFile :: String
+  , xlSheet :: String
+  , bcols :: Integer
+  , brows :: Integer
+  } deriving (Show, Generic, Typeable, Eq)
+
+instance Binary Config
+
+getIBuf :: [[Char]] -> [IBuf]
+getIBuf t = do
+  b <- intercalate ","  t
+  let i = (1 b) :: IBuf
+  return i
+
+--getExcel :: String -> String -> Integer -> [IBuf]
+getExcel f s r = do
+--  bs <- getIBuf . show $ toTableRowsFromFile 1 f
+--  return bs
+  r <- toTableRowsFromFile 8 "final-project.xlsx"
+  let json = A.encode r
+  return json
+
+readExcel :: Process ()
+readExcel = do
+    chan <- expect
+    Act a <- expect
+    Step ts <- expect
+    Config f s c r <- expect
+    forever $ sendChan chan $ getExcel f s r
+
+
+remotable ['readExcel]

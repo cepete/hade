@@ -1,0 +1,118 @@
+-- Hade - Haskell Application Development Environment
+-- Author - C.E. Petersen
+-- Origin Date - 08-31-2017
+-- Revision 1.0
+--
+--
+--
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE UndecidableInstances #-}
+
+module Struct.Struct where
+
+import Data.Aeson as A (FromJSON,ToJSON,Object, Value (String), parseJSON, toJSON, Key )
+import GHC.Generics ( Generic )
+import Data.Binary ( Binary )
+import Data.HashMap.Strict ( HashMap )
+import Data.Typeable ( Typeable )
+import Control.Concurrent.STM ( TMVar )
+import Control.Distributed.Process ( SendPort )
+import Struct.Architecture ( SConfig, StepProperty, Property, Steps )
+import Servant ( JSON )
+import Data.ByteString.UTF8 (ByteString)
+import Control.Monad
+import qualified Data.Text as T
+import qualified Data.Text.Encoding as E
+import qualified Data.ByteString.Base64 as B64
+import Data.Aeson.KeyMap (KeyMap)
+--import qualified Data.Aeson as K
+newtype Act = Act Integer deriving (Eq, Show, Typeable, Generic)
+
+instance Binary Act
+
+-- Generalized to any MonadPlus instance, not just Either String
+textToByteString :: MonadPlus m =>  T.Text -> m ByteString
+textToByteString x = case B64.decode (E.encodeUtf8 x) of
+                     Left _ -> mzero
+                     Right bs -> pure bs
+
+instance A.FromJSON ByteString where
+  parseJSON (A.String x) = textToByteString x
+  parseJSON _ = mzero
+
+
+byteStringToText :: ByteString -> T.Text
+byteStringToText = E.decodeUtf8 . B64.encode
+
+instance A.ToJSON ByteString where
+  toJSON = A.toJSON . byteStringToText
+
+type Command = String
+type SMap = JSON
+type Parm = []
+type PReq = (SMap,Parm String)
+
+type BField = ByteString
+
+type Row = [BField]
+
+type Rows = [Row]
+
+type OField = String 
+type ORow = [OField]
+type ORows = [ORow]
+
+newtype RQueue = RQueue
+  {
+    slot :: PReq
+  }
+
+newtype BBuf = BBuf {body :: Rows} deriving (Show,Generic)
+newtype OBuf = OBuf {obody :: ORows} deriving (Show,Generic)
+
+data EBuf = EBuf {  bufr :: BBuf
+                  , mid ::  Int} |
+            RBuf {  obufr :: OBuf
+                  , mid ::  Int} deriving (Show,Generic)
+
+data Rq = Rq {ebfr :: EBuf
+                  , trans :: String
+                  , pms :: [String]
+                  } deriving (Show,Generic)
+
+type StpObj = HashMap String StepProperty
+type HopObj = [KeyMap Key]
+
+data Buf = IChan (SendPort Buf) | IHash SConfig | IBuf BBuf deriving (Show,Generic,Typeable)
+
+data Trans = Trans {property :: Property
+               , steps :: [Steps]
+               , hops :: [Hops]
+               } deriving (Show, Generic)
+
+data Hops = Hops { hop :: HopObj } deriving (Show, Generic)
+
+instance Binary OBuf
+instance Binary EBuf
+instance Binary Rq
+instance Binary BBuf
+instance Binary Buf
+
+instance FromJSON OBuf
+instance FromJSON Trans
+instance FromJSON Hops
+instance FromJSON EBuf
+instance FromJSON Rq
+instance FromJSON BBuf
+instance ToJSON Trans
+instance ToJSON Hops
+instance ToJSON OBuf
+instance ToJSON EBuf
+instance ToJSON Rq
+instance ToJSON BBuf
+
+type Req = (TMVar Rq,TMVar Rq)

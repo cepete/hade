@@ -1,0 +1,65 @@
+{
+	"property": {
+			"mapName": "map_si_trg01_csv1",
+			"bufferSize": 500
+	},
+	"steps": [{
+    "stepName": "Input_test_csv1",
+		"stepProperty": {
+			"stepName": "Input_test_csv1",
+			"stepType": "readCsv",
+			"runLoc": "src01_csv",
+			"file": "in_test_csv1.csv",
+			"columns": [{
+				"columnPos": 1,
+				"columnName": "id",
+				"dataType": "Int",
+				"length": 16,
+				"decimalPos": 0
+			}, {
+				"columnPos": 2,
+				"columnName": "description",
+				"dataType": "String",
+				"length": 200
+			}, {
+				"columnPos": 3,
+				"columnName": "quantity",
+				"dataType": "Double",
+				"length": 16,
+				"decimalPos": 2
+			}]
+		}
+	}, {
+    "stepName": "Output_test_web",
+		"stepProperty": {
+			"stepName": "Output_test_web",
+			"stepType": "returnVal",
+			"runLoc": "trg01_web",
+			"file": "web",
+			"columns": [{
+				"columnPos": 1,
+				"columnName": "id",
+				"dataType": "Int",
+				"length": 16,
+				"decimalPos": 0
+			}, {
+				"columnPos": 2,
+				"columnName": "description",
+				"dataType": "String",
+				"length": 200
+			}, {
+				"columnPos": 3,
+				"columnName": "quantity",
+				"dataType": "Double",
+				"length": 16,
+				"decimalPos": 2
+			}]
+		}
+	}],
+	"hops": [{
+		"hop": {
+			"hopSource": "Input_test_csv1",
+			"hopTarget": "Output_test_web"
+		}
+	}]
+}

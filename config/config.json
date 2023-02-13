@@ -1,0 +1,27 @@
+{
+  "config":
+  {
+    "connections": [
+    {
+      "connectionName": "src01_csv",
+      "cfgProperty":
+      {
+        "envName": "local",
+        "hostName": "localhost",
+        "portNumber": 8001,
+        "mapDirectory": "/apps/workspace/hade/maps/src01_csv"
+      }
+    },
+    {
+      "connectionName": "trg01_web",
+      "cfgProperty":
+      {
+        "envName": "local",
+        "hostName": "localhost",
+        "portNumber": 8008,
+        "mapDirectory": "/apps/workspace/hade/maps/trg01_web"
+      }
+    }
+    ]
+  }
+}

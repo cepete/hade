@@ -1,0 +1,202 @@
+﻿<map>
+  <Property MapName="map_si_src01_cvs1"></Property>
+    <Steps>
+      <Step>
+	<StepProperty Name="StepName">Input_test_cvs1</StepProperty>
+        <StepProperty Name="StepType">Input_Cvs</StepProperty>
+        <StepProperty Name="RunLoc">src01_cvs</StepProperty>
+        <StepProperty Name="File">in_test_cvs1.cvs</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">2</Property>
+	    <Property Name="ColumnName">description</Property>
+            <Property Name="DataType">string</Property>
+            <Property Name="Length">200</Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">3</Property>
+	    <Property Name="ColumnName">quantity</Property>
+            <Property Name="DataType">number</Property>
+            <Property Name="Length">16</Property>
+            <Property Name="DecimalPos">2</Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Input_test_cvs2</StepProperty>
+        <StepProperty Name="StepType">Input_Cvs</StepProperty>
+        <StepProperty Name="RunLoc">src02_cvs</StepProperty>
+        <StepProperty Name="File">in_test_cvs2.cvs</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">2</Property>
+	    <Property Name="ColumnName">manufacturing_plant</Property>
+            <Property Name="DataType">string</Property>
+            <Property Name="Length">200</Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">3</Property>
+	    <Property Name="ColumnName">on-hand</Property>
+            <Property Name="DataType">number</Property>
+            <Property Name="Length">16</Property>
+            <Property Name="DecimalPos">2</Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Input_test_cvs3</StepProperty>
+        <StepProperty Name="StepType">Input_Cvs</StepProperty>
+        <StepProperty Name="RunLoc">src02_cvs</StepProperty>
+        <StepProperty Name="File">in_test_cvs3.cvs</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">2</Property>
+	    <Property Name="ColumnName">description</Property>
+            <Property Name="DataType">string</Property>
+            <Property Name="Length">200</Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">3</Property>
+	    <Property Name="ColumnName">quantity</Property>
+            <Property Name="DataType">number</Property>
+            <Property Name="Length">16</Property>
+            <Property Name="DecimalPos">2</Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">4</Property>
+	    <Property Name="ColumnName">manufacturing_plant</Property>
+            <Property Name="DataType">string</Property>
+            <Property Name="Length">200</Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+          <Column>
+	    <Property Name="ColumnPos">5</Property>
+	    <Property Name="ColumnName">on-hand</Property>
+            <Property Name="DataType">number</Property>
+            <Property Name="Length">16</Property>
+            <Property Name="DecimalPos">2</Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Output_test_cvs1</StepProperty>
+        <StepProperty Name="StepType">Output_Cvs</StepProperty>
+        <StepProperty Name="RunLoc">trg01_cvs</StepProperty>
+        <StepProperty Name="File">out_test_cvs1.cvs</StepProperty>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Sort_test_cvs1</StepProperty>
+        <StepProperty Name="StepType">Sorter</StepProperty>
+        <StepProperty Name="RunLoc">trg02_cvs</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Sort_test_cvs2</StepProperty>
+        <StepProperty Name="StepType">Sorter</StepProperty>
+        <StepProperty Name="RunLoc">trg02_cvs</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Merge</StepProperty>
+        <StepProperty Name="StepType">MergeJoin</StepProperty>
+        <StepProperty Name="RunLoc">trg02_cvs</StepProperty>
+	<StepProperty Name="InStepOne">Sort_test_cvs1</StepProperty>
+	<StepProperty Name="InStepTwo">Sort_test_cvs2</StepProperty>
+        <Columns>
+          <Column>
+	    <Property Name="ColumnPos">1</Property>
+	    <Property Name="ColumnName">id</Property>
+            <Property Name="DataType">integer</Property>
+            <Property Name="Length"></Property>
+            <Property Name="DecimalPos"></Property>
+          </Column>
+        </Columns>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Union</StepProperty>
+        <StepProperty Name="StepType">Union</StepProperty>
+        <StepProperty Name="RunLoc">trg01_cvs</StepProperty>
+	<StepProperty Name="InStepOne">Merge</StepProperty>
+	<StepProperty Name="InStepTwo">Input_test_cvs3</StepProperty>
+      </Step>
+      <Step>
+	<StepProperty Name="StepName">Stop</StepProperty>
+        <StepProperty Name="StepType">Stop</StepProperty>
+        <StepProperty Name="RunLoc">trg01_cvs</StepProperty>
+      </Step>
+    </Steps>
+    <Hops>
+      <Hop>
+	<HopSource>Input_test_cvs1</HopSource>
+	<HopTarget>Sort_test_cvs1</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Input_test_cvs2</HopSource>
+	<HopTarget>Sort_test_cvs2</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Sort_test_cvs1</HopSource>
+	<HopTarget>Merge</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Sort_test_cvs2</HopSource>
+	<HopTarget>Merge</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Merge</HopSource>
+	<HopTarget>Union</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Input_test_cvs3</HopSource>
+	<HopTarget>Union</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Union</HopSource>
+	<HopTarget>Output_test_cvs1</HopTarget>
+      </Hop>
+      <Hop>
+	<HopSource>Output_test_cvs1</HopSource>
+	<HopTarget>Stop</HopTarget>
+      </Hop>
+    </Hops>
+</map>

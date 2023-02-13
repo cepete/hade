@@ -1,0 +1,70 @@
+{
+	"Property": {
+		"MapName": "map_si_src01_cvs1"
+	},
+	"Steps": [{
+		"StepProperty": {
+			"stepName": "Input_test_cvs1",
+			"stepType": "Input_Cvs",
+			"runLoc": "src01_cvs",
+			"file": "in_test_cvs1.cvs"
+		},
+		"Columns": [{
+			"Column": {
+				"ColumnPos": "1",
+				"ColumnName": "id",
+				"DataType": "integer",
+				"Length": "0",
+				"DecimalPos": "0"
+			}
+		}, {
+			"Column": {
+				"ColumnPos": "2",
+				"ColumnName": "description",
+				"DataType": "string",
+				"Length": "200"
+			}
+		}, {
+			"Column": {
+				"ColumnPos": "3",
+				"ColumnName": "quantity",
+				"DataType": "number",
+				"Length": "16",
+				"DecimalPos": "2"
+			}
+		}]
+	}, {
+		"StepProperty": {
+			"StepName": "Output_test_cvs1",
+			"StepType": "Output_Cvs",
+			"RunLoc": "trg01_cvs",
+			"File": "out_test_cvs1.cvs"
+		},
+		"Columns": [{
+			"Column": {
+				"ColumnPos": "1",
+				"ColumnName": "id",
+				"DataType": "integer",
+				"Length": "0",
+				"DecimalPos": "0"
+			}
+		}, {
+			"ColumnPos": "2",
+			"ColumnName": "description",
+			"DataType": "string",
+			"Length": "200"
+		}, {
+			"Column": {
+				"ColumnPos": "3",
+				"ColumnName": "quantity",
+				"DataType": "number",
+				"Length": "16",
+				"DecimalPos": "2"
+			}
+		}]
+	}],
+	"Hops": {
+		"HopSource": "Input_test_cvs1",
+		"HopTarget": "Output_test_cvs1"
+	}
+}
