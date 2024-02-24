@@ -55,7 +55,8 @@ server r s = tran
       let eb = EBuf b h
       let nb = Rq eb m []
       liftIO $ atomically (tryPutTMVar (fst r) nb)
-      liftIO $ readResult (snd r)
+      liftIO $ atomRead (snd r)
+--      readResult (snd r)
 
 api :: Proxy API
 api = Proxy
@@ -66,7 +67,8 @@ app1 r s = serve api (server r s)
 startService :: Req -> IO ()
 startService rqt = do
   sq <- atomically (newTVar 0)
-  run 8080 (app1 rqt sq)
+  print "Run"
+  run 3000 (app1 rqt sq)
 
 atomRead :: TMVar a -> IO a
 atomRead = atomically . takeTMVar
@@ -83,4 +85,5 @@ appV fn x = atomically $ readTVar x >>= writeTVar x . fn
 putJ :: ByteString -> Process ()
 putJ j = say $ "Got Chan2" ++ U.toString j
 
-readResult r = atomRead r ++ readResult r
+--readResult :: TMVar a1 -> [a2]
+--readResult r = concat . show (atomRead r ++ readResult r)

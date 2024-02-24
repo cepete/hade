@@ -12,27 +12,12 @@
 module Actor.MasterActor where
 
 import           Actor.Master
---import           Control.Concurrent
---import           Control.Concurrent.STM
 import           Control.Distributed.Process
 import           Control.Distributed.Process.Backend.SimpleLocalnet
---import           Control.Distributed.Process.Node                   (initRemoteTable)
 import           Control.Monad
---import           Control.Monad.Trans
 import           Data.Aeson                                         as A
---import           Data.Aeson.Types
 import qualified Data.ByteString.Lazy                               as B
---import           Data.ByteString.Lazy.UTF8                          as U
---import           Data.Int
---import           Data.List
---import           Data.String
---import           Data.Functor
---import           Data.Text as T
---import           Text.Printf
---import           GHC.Generics
---import           Server.Service
---import           Step.ReadExcel
---import           Step.ReadCsv
+
 import           Struct.Architecture
 --import           System.Environment                                 (getArgs)
 --

@@ -10,10 +10,11 @@ import Control.Distributed.Process.Node ( initRemoteTable )
 --import Network.Transport.TCP
 --import Actor.Master
 import Actor.MasterActor ( masterActor )
-import Control.Concurrent ( forkIO )
+import Control.Concurrent ( forkIO, ThreadId )
 import Server.Service ( startService )
 import Remote ( __remoteTable )
 import Struct.Architecture ( Req )
+import Control.Distributed.Process
 --import Data.ByteString.Char8
 --import Util.Request
 
@@ -28,4 +29,6 @@ main = do
 --  forkIO $ requestMonitor request
 --  forkIO $ cacheMonitor (request,response)
   let s = forkIO $ startService r
+  lg <- liftIO s
+  print lg
   startMaster backend (masterActor backend r)

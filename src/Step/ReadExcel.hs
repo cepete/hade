@@ -24,10 +24,6 @@ import Control.Distributed.Process
 import Control.Lens
 import Struct.Architecture as S
 import Data.ByteString.Lazy as U (readFile,ByteString,pack,unpack, zip)
---import Data.ByteString.Lazy.UTF8 as BU (fromString)
---import Data.ByteString.Conversion
---import Data.Word8
---import Text.Printf (printf)
 
 
 
@@ -44,9 +40,8 @@ readExcel = do
   sendChan chan (IBuf $ BBuf buf)
   where
     j = do
-      bs <- U.readFile "/apps/workspace/hade/maps/src03_excel/in_test_excel1.xlsx"
+      U.readFile "/apps/workspace/hade/maps/src03_excel/in_test_excel1.xlsx"
       --let value = toXlsx bs ^? ixSheet "Sheet1"  -- . ixCell (3,2) . cellValue . _Just
-      return bs
 
 returnBuf :: Steps -> ByteString -> [Row]
 returnBuf stp bs = do
@@ -58,7 +53,7 @@ buildBuf :: Int -> Int -> Worksheet -> [Row]
 buildBuf x y sht = do
   let z = _wsCells sht
   []
-  
+
   --buildBuf x y sht :: buildBuf (x+1) y sht
 
 --buildRow :: Int -> Int -> Worksheet -> Row

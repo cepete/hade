@@ -95,5 +95,3 @@ instHops h ist e t rqt p = do
   P.send (last s) (IChan sendPort) -- Send channel to last step to get response
   sendVar rcvPort rqt t e
   return s
-
-

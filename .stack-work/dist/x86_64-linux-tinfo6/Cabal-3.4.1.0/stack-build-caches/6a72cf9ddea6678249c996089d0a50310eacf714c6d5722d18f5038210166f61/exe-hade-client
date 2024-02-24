@@ -1,0 +1,24 @@
+/apps/workspace/hade/.stack-work/dist/x86_64-linux-tinfo6/Cabal-3.4.1.0/build/hade-client/autogen/cabal_macros.h:
+  hash: bdda0a50fabb7dfdcba4453c17684f085bb38d663c42994ca0ce1e91b983cb96
+/apps/workspace/hade/app/hade-client/Main.hs:
+  hash: 2cf0c49a8c7272ec30f0024ef515095859dca8167fe9719a58d7604dd3399405
+/apps/workspace/hade/hade.cabal:
+  hash: 78de616a92e9fb818f2f9a8ed3a39c0b4e219e53684daadbc089d40fb24f8050
+/apps/workspace/hade/src/Actor/Master.hs:
+  hash: 80919a92b4c815cd1c94eebb9a8420f33823e57022104ab9d8df591091f57656
+/apps/workspace/hade/src/Remote.hs:
+  hash: b63aacff8069d7d38b6282690079a852d6e94ee6b1fc1e0de6f06250cea960de
+/apps/workspace/hade/src/Step/ReadCsv.hs:
+  hash: 561c91f362158063269644f7bc4ab02c2cd7fa5213546b21813b5a31db055d94
+/apps/workspace/hade/src/Step/ReadExcel.hs:
+  hash: 37453afb4567b87a5f9d82dd3f30c306fcf6daa14aa580557739051101220988
+/apps/workspace/hade/src/Step/ReturnVal.hs:
+  hash: 713e1ae10da4eafa84c6101668ce6ad82ba722430b94acf0ff1d0b4777240aed
+/apps/workspace/hade/src/Struct/Architecture.hs:
+  hash: edfcd760a92809bc74e85d70be14453e4da6feecb6a565c5e6b314cd73634053
+/apps/workspace/hade/src/Util/Util.hs:
+  hash: 8a997e2b44c19fd1fc0f86f53bb16320677f60568ec03184038f0ce8545c5f18
+/home/carl/.stack/programs/x86_64-linux/ghc-tinfo6-9.0.2/lib/ghc-9.0.2/include/ghcversion.h:
+  hash: b6281754d6dc5c5462a97f01fbffb615a7d9f031384e8e8250fce23e8f43f266
+/usr/include/stdc-predef.h:
+  hash: 64fdf694f7b3d51ec6c45c06dcb71ebbe9455742d3ea673012016668853d3bff
